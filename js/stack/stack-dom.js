@@ -1,3 +1,5 @@
+const Stack = require('./stack-data-structure');
+
 const stackList = document.getElementById('stack-list');
 const stackInput = document.getElementById('stack-input');
 const container = document.getElementById('container');
@@ -11,34 +13,36 @@ const takeStackBtn = document.getElementById('take-stack');
 const newStack = new Stack();
 
 const clearStackInput = () => {
-  // ... your code goes here
+  stackInput.value = '';
 };
 
 const renderListStack = () => {
-  // ... your code goes here
+  newStack.display();
 };
 
 renderListStack();
 
 const generateWarningStack = (type) => {
   if (type === 'underflow') {
-    // ... your code goes here
+    newStack.push(stackList);
   } else if (type === 'overflow') {
-    // ... your code goes here
+    newStack.isEmpty();
   }
 };
 
 const addToStack = () => {
   try {
-    // ... your code goes here
+    newStack.canPush();
+    clearStackInput();
   } catch (error) {
-    // there was an overflow error, handle it
+    generateWarningStack();
   }
 };
 
 const removeFromStack = () => {
   try {
     // ... your code goes here
+    clearStackInput();
   } catch (error) {
     // there was an underflow error, handle it
   }
